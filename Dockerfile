@@ -11,7 +11,7 @@ WORKDIR /app
 # COPY go.mod go.sum ./
 
 # Download all dependencies
-RUN go mod download
+# RUN go mod download
 
 # Copy the source code
 COPY . .
@@ -33,4 +33,5 @@ EXPOSE 8080
 
 # Command to run the executable
 CMD ["./main"]
+
 
