@@ -8,7 +8,7 @@ FROM golang:1.17 AS builder
 WORKDIR /app
 
 # Copy go.mod and go.sum files first to leverage Docker cache
-COPY go.mod go.sum ./
+# COPY go.mod go.sum ./
 
 # Download all dependencies
 RUN go mod download
@@ -33,3 +33,4 @@ EXPOSE 8080
 
 # Command to run the executable
 CMD ["./main"]
+
