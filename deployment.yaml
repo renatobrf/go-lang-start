@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-lang-start
+  labels:
+    app: go-lang
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-lang-start
+  template:
+    metadata:
+      labels:
+        app: go-lang-start
+    spec:
+      containers:
+      - name: go-lang-start
+        image: renatobrf/go-lang-start
+        imagePullPolicy: Always
+        volumeMounts:
+            - name: persistent-storage
+              mountPath: /usr/share/go-lang-start
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: my-pvc
